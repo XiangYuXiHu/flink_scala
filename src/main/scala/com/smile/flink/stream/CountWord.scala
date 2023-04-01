@@ -1,4 +1,4 @@
-package com.smile.stream
+package com.smile.flink.stream
 
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 
