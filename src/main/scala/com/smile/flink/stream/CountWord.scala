@@ -1,23 +1,28 @@
 package com.smile.flink.stream
 
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
+import org.apache.flink.streaming.api.scala._
 
 object CountWord {
 
   def main(args: Array[String]): Unit = {
-    val path = "D:/flink/data/hello.txt"
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
+    wordCount(env)
+  }
 
-    val data = env.readTextFile(path)
+  def wordCount(env: StreamExecutionEnvironment): Unit = {
+    val data = env.readTextFile("D:/flink/data/hello.txt")
 
-    import org.apache.flink.streaming.api.scala._
-
-    data.flatMap(_.toLowerCase.split("\t"))
+    data.flatMap(_.toLowerCase().split("\t"))
       .filter(_.nonEmpty)
       .map((_, 1))
-      .keyBy(e => e._2)
-      .sum(1).print()
+      .keyBy(e => e._1)
+      .sum(1)
+      .print()
+
+    env.execute("word count")
   }
+
 
 }
