@@ -1,4 +1,4 @@
-package com.smile.scala
+package com.smile.tiny
 
 import scala.collection.{JavaConverters, mutable}
 import scala.collection.mutable.ArrayBuffer
