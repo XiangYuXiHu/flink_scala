@@ -6,8 +6,8 @@ import scala.collection.mutable.ListBuffer
 object CollectionTest {
 
   def main(args: Array[String]): Unit = {
-    //    list_opr()
-    //    listBuffer_opr()
+//        list_opr()
+//        listBuffer_opr()
     hashSet_opr()
   }
 
@@ -26,6 +26,8 @@ object CollectionTest {
      */
     val li2 = li :+ 5
     println(li2)
+
+    println(li)
   }
 
   /**

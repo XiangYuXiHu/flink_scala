@@ -16,6 +16,10 @@ class Student1(val name: String, var age: Int) {
 
   // private[this]关键字标识该属性只能在类的内部访问, 伴生类不能访
   private[this] val province: String = "北京"
+
+  def sayHello(name: String = "defaultName", age: Int = 18): Unit = {
+    println("name:" + name + ",age:" + age)
+  }
 }
 
 /**
@@ -26,6 +30,8 @@ object Test1 {
     // 调用主构造器
     val s = new Student1("laoduan", 38)
     println(s"${s.name} ${s.age}")
+
+    s.sayHello("jim")
 
     // 调用的是辅助构造器
     val s1 = new Student1("laoYang", 18, "male")

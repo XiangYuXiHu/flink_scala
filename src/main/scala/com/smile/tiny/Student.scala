@@ -1,7 +1,7 @@
 package com.smile.tiny
 
 /*
-*    在 Scala 中，类并不用声明为 public。
+*    在 Scala 中，类并不用声明为 public
 *    如果没有定义构造器, 类会有一个默认的空参构造器
 *    var 修饰的变量, 这个变量对外提供 getter setter 方法
 *    val 修饰的变量, 对外提供 getter 方法,没有 setter
@@ -16,4 +16,38 @@ class Student {
 
   // private[this]关键字标识该属性只能在类的内部访问, 伴生类不能访
   private[this] val province: String = "北京"
+
+  def intro() {
+    println(name + " " + age + " " + school)
+  }
+
+  //定义方法没带(),调用的时候不能带()
+  def intro1 = println(name + " " + age + " " + school)
+
+
+}
+
+
+object Test12 {
+
+  val hellFunc = (name: String) => println("hello " + name)
+
+  def greeting(func: (String) => Unit, name: String): Unit = {
+    func(name)
+  }
+
+  def main(args: Array[String]): Unit = {
+    val student = new Student()
+
+    student.intro()
+    student.intro1
+
+    greeting(hellFunc, "jim")
+
+    greeting((name: String) => println("hello" + name), "jim")
+
+    greeting(name => println("hello " + name), "tom")
+  }
+
+
 }

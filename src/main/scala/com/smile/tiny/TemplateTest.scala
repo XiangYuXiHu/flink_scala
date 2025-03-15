@@ -29,7 +29,7 @@ object TemplateTest {
     println(msg.get + " " + value.get)
 
     val cl = new Clothes[clothesEnum, String, String](clothesEnum.上衣, "红色", "32L")
-    println(cl.siz)
+    println(cl.siz+" "+cl.clothesType+" "+cl.color)
 
     val list = List(1, 2, 3, 4, 5, 6)
     println(getData(list))

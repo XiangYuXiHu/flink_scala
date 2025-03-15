@@ -1,8 +1,8 @@
 package com.smile.tiny
 
-import scala.collection.{JavaConverters, mutable}
+
+import scala.collection.JavaConverters
 import scala.collection.mutable.ArrayBuffer
-import java.util
 
 object Java2Scala {
 
@@ -12,10 +12,11 @@ object Java2Scala {
     /**
      * scala to java
      */
-    val list: util.List[String] = JavaConverters.bufferAsJavaListConverter(element).asJava
-    println(list)
-    val scalaBuffer: mutable.Buffer[String] = JavaConverters.asScalaBufferConverter(list).asScala
-    for (elem <- scalaBuffer) {
+    val javaList = JavaConverters.bufferAsJavaListConverter(element).asJava
+
+    println(javaList)
+    val scalaList = JavaConverters.asScalaBufferConverter(javaList).asScala
+    for (elem <- scalaList) {
       println(elem)
     }
   }
